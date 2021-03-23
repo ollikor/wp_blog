@@ -1,0 +1,115 @@
+/*
+Theme Name: mytheme
+Version: 1.0
+Description: First custom theme
+Author: Olli Korhonen
+*/
+
+body {
+    margin: 0px;
+}
+
+h1 {
+    margin: 0px;
+}
+
+#site-header {
+    width: 100%;
+    height: 100vh;
+    color: red;
+    background-size: cover;
+    /* background-image: url('./images/header.jpg'); */
+}
+
+.navbar {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+    background-color: rgb(48, 48, 48);
+}
+
+.nav-item {
+    float: left;
+}
+
+.nav-item a {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+#homepage-header {
+    color: red;
+}
+
+.header-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    margin: 0;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color:rgba(70, 70, 70, 0.8);
+}
+
+.custom-logo {
+    width: 100px;
+    height: auto;
+    /* padding: 10px; */
+    /* background-color: rgb(255, 255, 255); */
+}
+
+.site-title {
+    margin: 10px;
+    color: white;
+}
+
+.site-description {
+    font-size: 20px;
+    margin: 10px;
+    color: white;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card {
+    padding-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px black;
+}
+
+.posts {
+    margin: 50px 50px;
+    display: grid;
+    grid-column-gap: 50px;
+    grid-template-columns: auto auto auto;
+}
+
+.footer {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    color: white;
+    background-color: rgb(48, 48, 48);
+}
