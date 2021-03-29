@@ -5,24 +5,91 @@ Description: First custom theme
 Author: Olli Korhonen
 */
 
+html {
+    font-family: 'Lexend', sans-serif;
+}
+
 body {
     margin: 0px;
 }
 
-h1 {
-    margin: 0px;
-}
+/* Header */
 
-#site-header {
+.full-site-header {
+    position: relative;
+    margin: 0;
+    padding: 0;
     width: 100%;
     height: 100vh;
-    color: red;
-    background-size: cover;
-    /* background-image: url('./images/header.jpg'); */
+}
+
+.full-header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+}
+
+.site-header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 400px;
+}
+
+.header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+}
+
+.logo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color:rgba(70, 70, 70, 0.8);
+}
+
+.custom-logo {
+    width: 100px;
+    height: auto;
+}
+
+.site-title {
+    margin: 10px;
+    color: white;
+}
+
+.site-description {
+    font-size: 20px;
+    margin: 10px;
+    color: white;
+}
+
+
+
+
+
+/* navbar */
+
+.nav-container {
+    width: 100%;
+    background-color: rgb(48, 48, 48);
 }
 
 .navbar {
-    margin: 0;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0;
     list-style-type: none;
     overflow: hidden;
@@ -39,52 +106,110 @@ h1 {
     padding: 20px;
     color: white;
     text-decoration: none;
+
 }
 
-#homepage-header {
-    color: red;
+.nav-item a:hover {
+    color: rgb(0, 121, 0);
 }
 
-.header-image {
+.current-menu-item a {
+    color: rgb(0, 121, 0);
+}
+
+
+
+
+
+/* frontpage */
+
+.frontpage-content {
     width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    margin: 0;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 50px 0;
 }
 
-.logo-container {
+
+
+
+
+
+/* recipes */
+.page-title {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+
+
+
+
+
+/* categories menu */
+
+.categories-menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0;
+    font-size: 20px;
+    list-style: none;
+}
+
+.category-menu-item {
+    width: 60px;
+    height: 60px;
+    margin: 10px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    padding: 0;
+    align-items: center;
+}
+
+.category-menu-item a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
+    font-size: 25px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    background-color: rgb(48, 48, 48);
+    box-shadow: 0 2px 5px rgb(48, 48, 48);
+}
+
+
+.category-menu-item a:hover {
+    color: rgb(0, 121, 0);
+    box-shadow: 0 2px 5px rgb(0, 121, 0);
+}
+
+.category-menu-item a {
+    color: white;
+}
+
+
+
+
+
+/* card */
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding-bottom: 20px;
     text-align: center;
-    background-color:rgba(70, 70, 70, 0.8);
-}
-
-.custom-logo {
-    width: 100px;
-    height: auto;
-    /* padding: 10px; */
-    /* background-color: rgb(255, 255, 255); */
-}
-
-.site-title {
-    margin: 10px;
-    color: white;
-}
-
-.site-description {
-    font-size: 20px;
-    margin: 10px;
-    color: white;
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px black;
 }
 
 .thumbnail {
@@ -92,24 +217,389 @@ h1 {
     height: 300px;
     object-fit: cover;
 }
+.card:hover {
+    box-shadow: 0 2px 5px rgb(0, 121, 0);
+}
 
-.card {
-    padding-bottom: 20px;
-    text-align: center;
-    box-shadow: 0 2px 5px black;
+.excerpt {
+    text-align: left;
+    padding: 0 15px;
+}
+
+.default-image {
+    width: 100%;
+    max-width: 300px;
+}
+
+.default-image .fas {
+    width: 300px;
+}
+
+
+
+
+/* blog recipe card container */
+
+.posts-container {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .posts {
-    margin: 50px 50px;
+    width: 98%;
+    padding: 1%;
     display: grid;
     grid-column-gap: 50px;
     grid-template-columns: auto auto auto;
 }
 
+
+.posts-section {
+    flex: 80%;
+}
+
+.posts-aside {
+    flex: 17%;
+    padding: 1.5%;
+    text-align: left;
+}
+
+.sidebar {
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    padding-left: 20px;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(119, 119, 119);
+}
+
+.posts-header {
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+.post-date {
+    display: block;
+}
+
+.posts-aside ul {
+    list-style: none;
+}
+
+.posts-aside ul a {
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+}
+
+.posts-aside ul a:hover {
+    color:rgb(0, 121, 0);
+}
+
+
+
+
+/* article */
+
+.single-post {
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 960px;
+}
+
+.single-post-header {
+    font-size: 25px;
+}
+
+.single-post-content {
+    font-size: 20px;
+}
+
+.post-title {
+    margin: 10px 0;
+}
+
+.tags {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.tag {
+    border-radius: 20px;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px;
+    color:rgb(255, 255, 255);
+    background-color: rgb(48, 48, 48);
+}
+
+.tag a {
+    color:rgb(255, 255, 255);
+}
+
+.article-thumbnail {
+    width: 960px;
+}
+
+.comments-container {
+    padding: 10px 0;
+    
+}
+
+.comment {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(119, 119, 119);
+}
+
+.fn {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.says {
+    display: none;
+}
+
+label[for=comment],
+label[for=author],
+label[for=email],
+label[for=url] {
+    display: block;
+}
+
+#submit {
+    padding: 10px;
+    border: none;
+    color:rgb(255, 255, 255);
+    background-color: rgb(0, 121, 0);
+}
+
+a {
+    color: rgb(48, 48, 48);
+}
+
+.pagination {
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.nav-links {
+    padding: 10px;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.screen-reader-text {
+    display: none;
+}
+
+.page-numbers {
+    margin-right: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(48, 48, 48);
+}
+
+.current {
+    color:rgb(48, 48, 48);
+    background-color: white;
+    box-shadow: 0 2px 5px rgb(48, 48, 48);
+}
+
+.post_link_navigation {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    background-color: rgb(48, 48, 48);
+}
+
+.post_link_navigation a {
+    color: white;
+    font-size: 20px;
+}
+
+
+
+
+
+/* footer */
+
 .footer {
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
     padding: 50px 0;
     text-align: center;
     color: white;
     background-color: rgb(48, 48, 48);
+}
+
+.copyright {
+    font-size: 18px;
+    margin-bottom: 50px;
+    flex: 100%;
+}
+
+.aside {
+    flex: 50%;
+    margin-bottom: 20px;
+}
+
+.aside-title {
+    margin: 10px;
+}
+
+.aside ul  {
+    list-style: none;
+    padding: 0;
+}
+
+.aside ul li {
+    margin: 10px;
+}
+
+.aside ul a {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+.aside ul a:hover {
+    color:rgb(0, 121, 0);
+}
+
+.section {
+    flex: 50%;
+}
+
+.social-title {
+    text-align: center;
+    margin: 10px;
+}
+
+.social-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin: 20px auto;
+    padding: 0;
+    font-size: 20px;
+    list-style: none;
+}
+
+.social-link {
+    width: 60px;
+    height: 60px;
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-link a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px rgb(48, 48, 48);
+}
+
+.social-link a:hover {
+    color:rgb(0, 121, 0);
+    box-shadow: 0 2px 5px rgb(0, 121, 0);
+}
+
+.not-found{
+    margin: 50px auto;
+    text-align: center;
+    color: red;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 768px) {
+
+    .posts {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .social-menu {
+        justify-content: center;
+    }
+
+    .social-title {
+        text-align: center;
+    }
+    
+    .posts-aside {
+        text-align: center;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    /* .posts {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        display: grid;
+        grid-template-columns: auto;
+    } */
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    .posts {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    .posts {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+    /* .posts {
+        margin: 50px 20px;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    } */
+
 }

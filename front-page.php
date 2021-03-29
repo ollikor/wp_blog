@@ -2,7 +2,7 @@
     get_header(); 
 ?>
 
-<article>
+<article class="frontpage-content">
 
 <?php
     if( have_posts() ){
@@ -15,6 +15,10 @@
         }
 
     }
+?>
+
+<?php 
+    dynamic_sidebar('frontpage-1'); 
 ?>
 
 </article>

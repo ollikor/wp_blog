@@ -1,4 +1,4 @@
-<div>
+<div class="comments-container">
     <h2>
         <?php
             if( ! have_comments()) {
@@ -13,15 +13,13 @@
         <?php 
             wp_list_comments(
                 array(
-                    'avatar_size' => 120,
+                    'avatar_size' => 0,
                     'style' => 'div',
                 )
             );
         ?>
     </div>
 </div>
-
-<hr>
 
 <?php
     if( comments_open() ){

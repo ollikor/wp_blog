@@ -11,39 +11,66 @@
 </head>
 
 <body>
-    <header id="site-header">
+    <?php if (is_front_page()) : ?>
 
-    <?php if ( get_header_image() ) : ?>
+        <header class="full-site-header">
 
-        <div id="site-header">
-            <img class="header-image" src="<?php header_image(); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-        </div>
+            <?php if ( has_header_image() ) : ?>
 
-    <?php endif; ?>
-      
-       
-        <div class="logo-container">
-            <?php
-                if(function_exists('the_custom_logo')) {
-                    
-                    the_custom_logo();
+                    <img class="full-header-image" src="<?php header_image(); ?>" alt="image">
 
-                }
-            ?>
-            <h1 class="site-title"><?php bloginfo('name'); ?></h1>
-            <h1 class="site-description"><?php bloginfo('description'); ?></h1>
-        </div>
-    </header>
+            <?php endif; ?>
+        
+        
+            <div class="logo-container">
+                        
+                <?php the_custom_logo(); ?>
 
-    <?php
+                <h1 class="site-title"><?php bloginfo('name'); ?></h1>
+
+                <h1 class="site-description"><?php bloginfo('description'); ?></h1>
+
+
+            </div>
+
+        </header>
+
+    <?php else : ?>
+
+        <?php if (!is_front_page()) : ?>
+
+            <header class="site-header">
+
+                <?php if ( has_header_image() ) : ?>
+
+                        <img class="full-header-image" src="<?php header_image(); ?>" alt="image">
+
+                <?php endif; ?>
+
+
+                <div class="logo-container">
+                    <?php the_custom_logo(); ?>
+
+                    <h1 class="site-title"><?php bloginfo('name'); ?></h1>
+
+                    <h1 class="site-description"><?php bloginfo('description'); ?></h1>
+
+                </div>
+
+            </header>
+
+        <?php endif ?>
+    <?php endif ?>
+    
+    <div class="nav-container">
+        <?php
         wp_nav_menu(
             array(
-                'menu' => 'primary',
-                'container' => '',
-                'theme_location' => 'primary',
+                'theme_location' => 'main-menu',
                 'items_wrap' => '<ul id="" class="navbar">%3$s</ul>',
-            )
-        );
-    ?>
+                )
+            );
+            ?>
+    </div>
 
     <div>
