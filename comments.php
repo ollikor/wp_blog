@@ -1,11 +1,9 @@
 <div class="comments-container">
     <h2>
         <?php
-            if( ! have_comments()) {
-                echo "Leave a comment";
-            } else {
+            if( have_comments()) :
                 echo get_comments_number(). "comments";
-            }
+            endif;
         ?>
     </h2>
 
@@ -19,13 +17,14 @@
             );
         ?>
     </div>
-</div>
-
-<?php
+    
+    <?php
     if( comments_open() ){
         comment_form(
             array(
                 'class_form' => '',
-            )
-        );
-    }
+                )
+            );
+        }
+        ?>
+</div>

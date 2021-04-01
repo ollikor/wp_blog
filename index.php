@@ -3,15 +3,16 @@
 ?>
 
 <?php
-
-    wp_nav_menu(
-        array(
-            'menu' => 'categories-menu',
-            'container' => '',
-            'theme_location' => 'primary',
-            'items_wrap' => '<ul id="" class="categories-menu">%3$s</ul>',
-        )
-    );
+    if ( has_nav_menu('categories-menu') ) :
+        wp_nav_menu(
+            array(
+                'menu' => 'categories-menu',
+                'container' => '',
+                'theme_location' => 'primary',
+                'items_wrap' => '<ul id="" class="categories-menu">%3$s</ul>',
+            )
+        );
+    endif;
 ?>
 
 <div class="posts-container">
@@ -22,20 +23,16 @@
         
             <?php
 
-                $args = array(
-                    'post_type' => array('post'),
-                );
-
-                $posts_query = new WP_Query( $args );
-                if( $posts_query->have_posts() ){
+                if( have_posts() ) :
                     
-                    while( $posts_query->have_posts() ){
+                    while( have_posts() ) :
                         
-                        $posts_query->the_post();
-                            get_template_part( 'template-parts/content', 'archive' );
-                    }
+                        the_post();
+                        get_template_part( 'template-parts/content', 'archive' );
+
+                    endwhile;
                     
-                }
+                endif;
                 ?>
 
         </article>

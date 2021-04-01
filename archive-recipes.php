@@ -19,8 +19,12 @@
 <article class="posts">
 
 <?php
+
+    $currentPage = get_query_var('paged');
+
     $args = array(
-        'post_type' => array('recipes'),
+        'post_type' => 'recipes',
+        'paged' => $currentPage
     );
     $recipe_query = new WP_Query($args);
     if( $recipe_query->have_posts() ){

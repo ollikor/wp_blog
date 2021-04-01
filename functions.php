@@ -7,32 +7,10 @@ function mytheme_theme_support() {
     add_theme_support( 'custom-header' );
     add_theme_support( 'post-thumbnails' );
 
-//     add_image_size( 'custom-size', 150, 150, true );
-    
-//     add_filter( 'image_size_names_choose', 'my_custom_sizes' );
- 
-// function my_custom_sizes( $sizes ) {
-//     return array_merge( $sizes, array(
-//         'custom-size' => __( 'Your Custom Size Name' ),
-//     ) );
-// }
-    // add_image_size( 'card-image', 150, 150);
-    // add_image_size( 'article-image', 300, 200, true);
-    
-    // add_filter( 'image_size_names_choose', 'custom_image');
-    //     function custom_image($sizes) {
-    //         return array_merge($sizes, array (
-    //             'card-image' => _('standard'),
-    //             'article-image' => _('cropped'),
-    //         ));
-    //     }
+    add_image_size('blog-small', 300, 200, true);
+    add_image_size('blog-large', 800, 400, false);
 }
 
-// add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
-// function wpdocs_theme_setup() {
-//     add_image_size( 'card-image', 150, 150 ); // 300 pixels wide (and unlimited height)
-//     add_image_size( 'article-image', 400, 300, true ); // (cropped)
-// }
 
 add_action( 'after_setup_theme', 'mytheme_theme_support' );
 
@@ -44,7 +22,7 @@ function register_my_menus() {
         'categories-menu' => __( 'Categories Menu' ),
         'food-categories-menu' => __( 'Food Categories Menu' ),
         'footer-menu' => __( 'Footer Menu' ),
-        'footer-social-menu' => __( 'Footer Social Menu' ),
+        'social-menu' => __( 'Social Menu' ),
        )
      );
    }
@@ -53,24 +31,25 @@ function register_my_menus() {
 
 function mytheme_register_styles() {
 
-    wp_enqueue_style('mytheme-css', get_template_directory_uri().'/style.css', array(), '1.0', 'all');
+    $version = wp_get_theme()->get( 'Version' );
+    wp_enqueue_style('mytheme-css', get_template_directory_uri().'/style.css', array(), $version, 'all');
     wp_enqueue_style('google-fonts', "https://fonts.googleapis.com/css2?family=Lexend&display=swap", false);
 
 }
 
 add_action( 'wp_enqueue_scripts', 'mytheme_register_styles');
 
+function mytheme_register_scripts() {
+
+    wp_enqueue_script('mytheme-scripts', get_template_directory_uri().'/scripts.js', array(), '1.0', true);
+
+}
+
+add_action( 'wp_enqueue_scripts', 'mytheme_register_scripts');
+
 
 function mytheme_widget_areas() {
 
-    register_sidebar( array(
-        'name'          => 'Frontpagebar',
-        'id'            => 'frontpage-1',
-        'before_widget' => '',
-        'after_widget'  => '',
-        'before_title'  => '',
-        'after_title'   => '',
-    ) );
     register_sidebar( array(
         'name'          => 'Sidebar',
         'id'            => 'sidebar-1',
@@ -78,6 +57,15 @@ function mytheme_widget_areas() {
         'after_widget'  => '</header></hr>',
         'before_title'  => '<h3>',
         'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name'          => 'Searchbar',
+        'id'            => 'searchbar-1',
+        'before_widget' => '<div class="searchbar">',
+        'after_widget'  => '</div>',
+        'before_title'  => '',
+        'after_title'   => '',
+        'title'         => 'dsaf'
     ) );
 
 }
@@ -95,7 +83,7 @@ function custom_post_type() {
         'public' => true,
         'has_archive' => true,
         'menu_icon' => 'dashicons-food',
-        'supports' => array('title', 'thumbnail', 'custom-fields', 'excerpt'),
+        'supports' => array('title', 'thumbnail', 'custom-fields', 'excerpt', 'comments'),
     );
 
     register_post_type('recipes', $args);
@@ -105,21 +93,35 @@ function custom_post_type() {
 add_action('init', 'custom_post_type');
 
 
-function my_first_taxonomy() {
+function recipe_taxonomy() {
 
     $args = array(
         'labels' => array(
-            'name' => 'Incredients',
-            'singular_name' => 'Incredient',
+            'name' => 'Tags',
         ),
         'public' => true,
         'hierarchical' => false,
     );
 
-    register_taxonomy('ingredients', array('recipes'), $args);
+    register_taxonomy('recipes', array('recipes'), $args);
+    // register_taxonomy_for_object_type('post_tag', 'recipes');
 }
 
-add_action('init', 'my_first_taxonomy');
+add_action('init', 'recipe_taxonomy');
 
+
+add_filter('comment_form_defaults', 'set_my_comment_title');
+function set_my_comment_title($defaults) {
+    $defaults['title_reply'] = __('Leave a comment');
+    return $defaults;
+}
+
+add_filter('comment_form_default_fields', 'website_remove');
+function website_remove($fields)
+{
+if(isset($fields['url']))
+unset($fields['url']);
+return $fields;
+}
 
 ?>

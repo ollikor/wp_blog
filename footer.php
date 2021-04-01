@@ -1,42 +1,48 @@
 <footer class="footer">
 
-            <div class="copyright">
-                © Olli Korhonen
-            </div>
+            <?php 
+            $bloginfo = get_bloginfo('name');
+            if ( ! empty( $bloginfo ) ) : ?>
+                <div class="copyright">
+                    © <?php echo $bloginfo ?>
+                </div>
+            <?php endif; ?>
 
-            <aside class="aside">
 
-                <h2 class="aside-title">Pages</h2>
-
-                <?php 
-                    wp_nav_menu(
-                        array(
-                            'theme_location' => 'footer-menu',
-                            'items_wrap' => '<ul id="" class="footer-menu">%3$s</ul>',
-                        )
-                    );
-                ?>
-
-            </aside>
-            
-            <section class="section">
-
-            <h2 class="social-title">Social media</h2>
-                
-                <?php
-                    wp_nav_menu(
-                        array(
-                            'theme_location' => 'footer-social-menu',
-                            'items_wrap' => '<ul id="" class="social-menu">%3$s</ul>',
+            <?php
+            if ( has_nav_menu('footer-menu') ) : ?>
+                <div class="footer-menu-container">
+                    <?php 
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'footer-menu',
+                                'items_wrap' => '<ul id="" class="footer-menu">%3$s</ul>',
                             )
                         );
-                ?>
+                    ?>
+                </div>
+            <?php endif; ?>
+
+
+            <?php
+            if ( has_nav_menu('social-menu') ) : ?>
+                <div class="social-menu-container">
+                    <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'social-menu',
+                                'items_wrap' => '<ul id="" class="social-menu">%3$s</ul>',
+                            )
+                        );
+                        ?>
+                </div>
+            <?php endif; ?>
                 
-            </section>
      
         </footer>
 
     </div>
 
+<?php wp_footer(); ?>
 </body>
 </html>

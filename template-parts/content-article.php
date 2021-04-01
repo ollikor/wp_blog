@@ -8,7 +8,7 @@
 
         <div>
             <?php if ( has_post_thumbnail() ) : ?>
-                    <img class="article-thumbnail" src="<?php the_post_thumbnail_url('thumbnail'); ?>" alt="image">
+                    <img class="article-thumbnail" src="<?php the_post_thumbnail_url('blog-large'); ?>" alt="image">
             <?php else : ?>
                     <img class="article-thumbnail" src="<?php bloginfo('template_directory'); ?>/images/header.jpg" alt="image">
             <?php endif; ?>
@@ -25,12 +25,14 @@
         <?php 
         $tags = get_the_tags();
         if(!empty($tags)) :
-            foreach ($tags as $tag) { ?>
+            foreach ($tags as $tag) : ?>
                 <span class="tag">
                     <i class="fas fa-tags"></i>
-                    <?php echo '<a href="' . get_tag_link( $tag ) . '">' . $tag->name . '</a>' ?>
+                    <a href="<?php echo get_tag_link( $tag->term_id);?>">
+                        <?php echo $tag->name; ?>
+                    </a>
                 </span>
-                <?php }
+                <?php endforeach;
         endif; ?>
     </div>
 
@@ -39,11 +41,11 @@
         $prev_post = get_previous_post();
         $next_post = get_next_post();
         if(! empty($prev_post)) : ?>
-        <span>Previous article: <?php previous_post_link('%link', '%title'); ?></span>
+        <?php previous_post_link('%link', '%title'); ?>
         <?php endif;
 
         if(! empty($next_post)) : ?>
-        <span>Next article: <?php next_post_link('%link', '%title'); ?></span>
+        <?php next_post_link('%link', '%title'); ?>
         <?php endif; ?>
     </div>
 
