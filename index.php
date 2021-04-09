@@ -28,6 +28,7 @@
                     while( have_posts() ) :
                         
                         the_post();
+
                         get_template_part( 'template-parts/content', 'archive' );
 
                     endwhile;
@@ -43,7 +44,7 @@
 
     <aside class="posts-aside">
 
-        <?php dynamic_sidebar('sidebar-1'); ?>
+        <?php dynamic_sidebar('sidebar'); ?>
 
     </aside>
 

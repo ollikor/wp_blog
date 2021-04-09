@@ -1,19 +1,20 @@
 <?php 
     get_header(); 
 ?>
-<h1 class="page-title"><?php wp_title(''); ?></h1>
 
 <div >
-    <!-- <?php 
-     wp_nav_menu(
-        array(
-            'menu' => 'food-categories-menu',
-            'container' => '',
-            'theme_location' => 'primary',
-            'items_wrap' => '<ul id="" class="categories-menu">%3$s</ul>',
-        )
-    );
-    ?> -->
+    <?php 
+    if( has_nav_menu('food-categories-menu') ) :
+        wp_nav_menu(
+            array(
+                'menu' => 'food-categories-menu',
+                'container' => '',
+                'theme_location' => 'primary',
+                'items_wrap' => '<ul id="" class="food-category-menu">%3$s</ul>',
+            )
+        );
+    endif;
+    ?>
 </div>
 
 <article class="posts">

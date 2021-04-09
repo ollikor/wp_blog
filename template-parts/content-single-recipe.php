@@ -3,7 +3,7 @@
     <header class="single-post-header"> 
 
     <div class="post-title">
-            <?php the_title(); ?>
+            <?php echo esc_html( get_the_title() ); ?>
             <div class="date"><?php the_time('d F Y'); ?></div>
     </div>
 
@@ -11,10 +11,10 @@
 
         <div>
             <?php if ( has_post_thumbnail() ) : ?>
-                    <img class="article-thumbnail" src="<?php the_post_thumbnail_url('thumbnail'); ?>" alt="image">
-            <?php else : ?>
-                    <img class="article-thumbnail" src="<?php bloginfo('template_directory'); ?>/images/header.jpg" alt="image">
-            <?php endif; ?>
+                <img class="thumbnail" src="<?php esc_url( the_post_thumbnail_url('blog-small') ); ?>" alt="image">
+        <?php else : ?>
+                <img class="thumbnail" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/header.jpg" alt="image">
+        <?php endif; ?>
         </div>
 
     </header>
@@ -23,15 +23,17 @@
         <header class="recipe-header">
             <div class="header-item">
                 <p>Prep time</p> 
-                <?php the_field('prep_time'); ?>
+                <?php 
+                   echo esc_html( get_field('prep_time') ); 
+                ?>
             </div>
             <div class="header-item">
                 <p>Cook time</p> 
-            <?php the_field('cook_time'); ?>
+            <?php echo esc_html( get_field('cook_time') ); ?>
             </div>
             <div class="header-item">
                 <p>Serve</p> 
-                <?php the_field('serve'); ?>
+                <?php echo esc_html( get_field('serve') ); ?>
             </div>
         </header>
         <aside class="recipe-aside">
@@ -40,33 +42,29 @@
                 $incredients = get_field('ingredients');
                 $array = explode(",", $incredients);
 
-                foreach ($array as $item) {
-                    echo "<li class='ingredients'>$item</li>";
-                }
+                foreach ($array as $item) { ?>
+                    <li class='ingredients'><?php echo wp_kses_post($item); ?></li>
+               <?php }
             ?>
         </ul>
         </aside>
         <section class="recipe-section">
         <?php
-            
-            the_field('instruction');
+            echo wp_kses_post( the_field('instruction') );
         ?>
         </section>
     </div>
 
     <div class="tags">
         <?php 
-        // echo $post->ID;
         global $post;
-        $tags = get_the_terms($post->ID, 'recipes');
-        // $tags = get_the_tags();
-        // print_r($tags);
+        $tags = wp_get_post_terms($post->ID, 'recipe');
         if(!empty($tags)) :
             foreach ($tags as $tag) : ?>
                 <span class="tag">
-                    <i class="fas fa-tags"></i>
-                    <a href="<?php get_tag_link( $tag->term_id);?>">
-                        <?php echo $tag->name; ?>
+                    <a href="<?php echo esc_url( get_tag_link( $tag->term_id) );?>">
+                        <i class="fas fa-tags"></i>
+                        <?php echo esc_html( $tag->name ); ?>
                     </a>
                 </span>
                 <?php endforeach;

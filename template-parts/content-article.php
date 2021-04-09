@@ -3,7 +3,7 @@
     <header class="single-post-header"> 
 
         <div class="post-title">
-            <?php the_title(); ?></span> - <span><?php the_date(); ?>
+            <?php echo esc_html( get_the_title() ); ?></span> - <span><?php the_date(); ?>
         </div>
 
         <div>
@@ -28,8 +28,8 @@
             foreach ($tags as $tag) : ?>
                 <span class="tag">
                     <i class="fas fa-tags"></i>
-                    <a href="<?php echo get_tag_link( $tag->term_id);?>">
-                        <?php echo $tag->name; ?>
+                    <a href="<?php echo esc_url( get_tag_link( $tag->term_id) );?>">
+                        <?php echo esc_html( $tag->name ); ?>
                     </a>
                 </span>
                 <?php endforeach;

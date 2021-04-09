@@ -2,7 +2,7 @@
     get_header(); 
 ?>
 
-<?php
+<!-- <?php
     if(has_nav_menu('categories-menu') ) : 
         wp_nav_menu(
             array(
@@ -11,7 +11,7 @@
             )
         );
     endif;
-?>
+?> -->
 
 <div class="posts-container">
     <section class="posts-section">
@@ -24,7 +24,7 @@
 
                     the_post();
                     
-                    get_template_part( 'template-parts/content', 'archive' );
+                    get_template_part( 'template-parts/content', 'taxonomy' );
                 
                 endwhile;
 
@@ -40,11 +40,11 @@
 
     </section>
 
-    <aside class="posts-aside">
+    <!-- <aside class="posts-aside">
         <?php 
             dynamic_sidebar('sidebar-1'); 
         ?>
-    </aside>
+    </aside> -->
 </div>
 
 <?php 

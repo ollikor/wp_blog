@@ -7,3 +7,7 @@
     <h1>Page Not Found</h1>
 
 </article>
+
+<?php
+    get_footer();
+?>

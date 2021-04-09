@@ -1,13 +1,9 @@
 <footer class="footer">
 
-            <?php 
-            $bloginfo = get_bloginfo('name');
-            if ( ! empty( $bloginfo ) ) : ?>
-                <div class="copyright">
-                    © <?php echo $bloginfo ?>
-                </div>
-            <?php endif; ?>
-
+        
+            <div class="copyright">
+                © <?php bloginfo('name'); ?>
+            </div>
 
             <?php
             if ( has_nav_menu('footer-menu') ) : ?>
