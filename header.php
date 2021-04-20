@@ -72,9 +72,11 @@
                             )
                         ); 
                     ?>
-                    <?php 
-                        dynamic_sidebar('searchbar-1'); 
-                    ?>
+                    <div class="searchbar">
+                        <?php 
+                            esc_html( get_search_form() );
+                        ?>
+                    </div>
                 </div>
             </div>
         <?php endif; ?>

@@ -39,12 +39,7 @@
         ?>
 
     </section>
-
-    <!-- <aside class="posts-aside">
-        <?php 
-            dynamic_sidebar('sidebar-1'); 
-        ?>
-    </aside> -->
+    
 </div>
 
 <?php 

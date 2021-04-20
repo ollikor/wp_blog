@@ -13,7 +13,7 @@
             <?php if ( has_post_thumbnail() ) : ?>
                 <img class="thumbnail" src="<?php esc_url( the_post_thumbnail_url('blog-small') ); ?>" alt="image">
         <?php else : ?>
-                <img class="thumbnail" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/header.jpg" alt="image">
+                <img class="thumbnail" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/default.jpg" alt="image">
         <?php endif; ?>
         </div>
 
@@ -76,11 +76,11 @@
         $prev_post = get_previous_post();
         $next_post = get_next_post();
         if(! empty($prev_post)) : ?>
-        <span>Previous: <?php previous_post_link('%link', '%title'); ?></span>
+        <?php echo wp_kses_post( get_previous_post_link('%link', '%title') ); ?>
         <?php endif;
 
         if(! empty($next_post)) : ?>
-        <span>Next: <?php next_post_link('%link', '%title'); ?></span>
+        <?php echo wp_kses_post( get_next_post_link('%link', '%title') ); ?>
         <?php endif; ?>
     </div>
 

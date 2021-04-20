@@ -1,6 +1,5 @@
 <footer class="footer">
 
-        
             <div class="copyright">
                 © <?php bloginfo('name'); ?>
             </div>

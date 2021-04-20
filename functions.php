@@ -59,33 +59,6 @@ add_action( 'wp_enqueue_scripts', 'mytheme_register_scripts');
 
 
 
-function mytheme_widget_areas() {
-
-    register_sidebar( array(
-        'name'          => 'Sidebar',
-        'id'            => 'sidebar-1',
-        'before_widget' => '<header class="sidebar">',
-        'after_widget'  => '</header></hr>',
-        'before_title'  => '<h3>',
-        'after_title'   => '</h3>',
-    ) );
-    register_sidebar( array(
-        'name'          => 'Searchbar',
-        'id'            => 'searchbar-1',
-        'before_widget' => '<div class="searchbar">',
-        'after_widget'  => '</div>',
-        'before_title'  => '',
-        'after_title'   => '',
-        'title'         => 'dsaf'
-    ) );
-
-}
-add_action( 'widgets_init', 'mytheme_widget_areas' );
-
-
-
-
-
 function custom_post_type() {
     $args = array(
         'labels' => array(
@@ -109,14 +82,6 @@ add_action('init', 'custom_post_type');
 
 
 function recipe_taxonomies() {
-
-    // $args = array(
-    //     'labels' => array(
-    //         'name' => 'Tags',
-    //     ),
-    //     'public' => true,
-    //     'hierarchical' => false,
-    // );
 
     $labels = array(
         'name'              => _x( 'tag', 'taxonomy general name', 'textdomain' ),
@@ -143,33 +108,6 @@ function recipe_taxonomies() {
 
     register_taxonomy('recipe', array('recipes'), $args);
 
-    // unset( $args );
-    // unset( $labels );
-
-    // $labels = array(
-    //     'name'              => _x( 'Foodcategories', 'taxonomy general name', 'textdomain' ),
-    //     'singular_name'     => _x( 'Foodcategory', 'taxonomy singular name', 'textdomain' ),
-    //     'search_items'      => __( 'Search Foodcategories', 'textdomain' ),
-    //     'all_items'         => __( 'All Foodcategories', 'textdomain' ),
-    //     'parent_item'       => __( 'Parent Foodcategory', 'textdomain' ),
-    //     'parent_item_colon' => __( 'Parent Foodcategory:', 'textdomain' ),
-    //     'edit_item'         => __( 'Edit Foodcategory', 'textdomain' ),
-    //     'update_item'       => __( 'Update Foodcategory', 'textdomain' ),
-    //     'add_new_item'      => __( 'Add New Foodcategory', 'textdomain' ),
-    //     'new_item_name'     => __( 'New Foodcategory Name', 'textdomain' ),
-    //     'menu_name'         => __( 'Foodcategory', 'textdomain' ), 
-    // );
-
-    // $args = array(
-    //     'hierarchical'      => true,
-    //     'labels'            => $labels,
-    //     'show_ui'           => true,
-    //     'show_admin_column' => true,
-    //     'query_var'         => true,
-    //     'rewrite'           => array( 'slug' => 'foodcategory' ),
-    // );
-
-    // register_taxonomy('recipes', 'recipes', $args);
 }
 add_action('init', 'recipe_taxonomies');
 
@@ -194,22 +132,5 @@ function website_remove($fields)
     return $fields;
 }
 add_filter('comment_form_default_fields', 'website_remove');
-
-
-
-
-
-
-function my_search_form_text($text) {
-    $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
-    <div><label class="screen-reader-text" for="s">' . __( 'Search for:' ) . '</label>
-    <input onClick="select()" type="text" value="' . get_search_query() . '" name="s" id="s" />
-    <button type="submit" id="searchsubmit"><i class="fas fa-search"></i></button>
-    </div>
-    </form>';
- 
-    return $form;
-}
-add_filter("get_search_form", "my_search_form_text");
 
 ?>

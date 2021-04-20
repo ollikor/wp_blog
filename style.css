@@ -407,7 +407,12 @@ body {
 .sidebar li {
     margin-bottom: 10px;
     padding-bottom: 10px;
+    list-style: none;
     border-bottom: 1px solid rgb(119, 119, 119);
+}
+
+.sidebar li a {
+    text-decoration: none;
 }
 
 .posts-header {

@@ -8,9 +8,9 @@
 
         <div>
             <?php if ( has_post_thumbnail() ) : ?>
-                    <img class="article-thumbnail" src="<?php the_post_thumbnail_url('blog-large'); ?>" alt="image">
+                    <img class="article-thumbnail" src="<?php esc_url( the_post_thumbnail_url('blog-large') ); ?>" alt="image">
             <?php else : ?>
-                    <img class="article-thumbnail" src="<?php bloginfo('template_directory'); ?>/images/header.jpg" alt="image">
+                    <img class="article-thumbnail" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/default.jpg" alt="image">
             <?php endif; ?>
         </div>
 
@@ -41,11 +41,11 @@
         $prev_post = get_previous_post();
         $next_post = get_next_post();
         if(! empty($prev_post)) : ?>
-        <?php previous_post_link('%link', '%title'); ?>
+        <?php echo wp_kses_post( get_previous_post_link('%link', '%title') ); ?>
         <?php endif;
 
         if(! empty($next_post)) : ?>
-        <?php next_post_link('%link', '%title'); ?>
+        <?php echo wp_kses_post( get_next_post_link('%link', '%title') ); ?>
         <?php endif; ?>
     </div>
 
