@@ -13,14 +13,18 @@ function nav() {
     }
 }
 
-window.onscroll = function() {
-    if(window.innerWidth > 768) {
-        var currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-            document.getElementById("nav-container").style.height = 0;
-        } else {
-            document.getElementById("nav-container").style.height = "auto";
+if(document.body.clientHeight > window.innerHeight) {
+    window.onscroll = function() {
+        if(window.innerWidth > 768) {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("nav-container").style.height = 0;
+            } else {
+                document.getElementById("nav-container").style.height = "auto";
+            }
+            prevScrollpos = currentScrollPos;
         }
-        prevScrollpos = currentScrollPos;
     }
+} else {
+    document.getElementById("nav-container").style.height = "auto";
 }
