@@ -38,7 +38,6 @@ function mytheme_register_styles() {
     $version = wp_get_theme()->get( 'Version' );
     wp_enqueue_style('mytheme-css', get_template_directory_uri().'/style.css', array(), $version, 'all');
     wp_enqueue_style('google-fonts', "https://fonts.googleapis.com/css2?family=Lexend&display=swap", false);
-
 }
 
 add_action( 'wp_enqueue_scripts', 'mytheme_register_styles');
@@ -139,4 +138,34 @@ function disable_mytheme_action() {
     define('DISALLOW_FILE_EDIT', TRUE);
 }
 add_action('init', 'disable_mytheme_action');
+
+
+//  Disable access to author pages
+
+function disable_author_page() {
+    global $wp_query;
+    if (is_author() && !is_admin() ) {
+        wp_redirect( home_url(), 301 );
+        exit;
+    }
+}
+
+add_action('template_redirect', 'disable_author_page');
+
+// Disable rest endpoints for author
+function disable_rest_endpoints($endpoints) {
+    if( isset( $endpoints['/wp/v2/users']) ) {
+        unset ( $endpoints['/wp/v2/users'] );
+    }
+    if ( isset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] ) ) {
+        unset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] );
+    }
+
+    return $endpoints;
+} 
+
+add_filter('rest_endpoints', 'disable_rest_endpoints');
+
 ?>
+
+
