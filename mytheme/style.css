@@ -1,0 +1,757 @@
+/*
+Theme Name: mytheme
+Version: 1.0
+Description: First custom theme
+Author: Olli Korhonen
+*/
+
+html {
+    font-family: 'Lexend', sans-serif;
+}
+
+body {
+    margin: 0px;
+}
+
+/* Header */
+
+.full-site-header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.full-header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+}
+
+.site-header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 400px;
+}
+
+.header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+}
+
+.logo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color:rgba(70, 70, 70, 0.8);
+}
+
+.custom-logo {
+    width: 100px;
+    height: auto;
+}
+
+.site-title {
+    margin: 10px;
+    color: white;
+}
+
+.site-description {
+    font-size: 20px;
+    margin: 10px;
+    color: white;
+}
+
+
+
+
+
+/* navbar */
+
+.nav-container {
+    overflow: hidden;
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(70, 70, 70, 0.9);
+}
+
+.nav-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.nav-container.visible {
+    height: auto;
+
+}
+
+#navbar {
+    /* max-width: 960px; */
+    /* margin: 0 auto; */
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+    /* background-color: rgb(48, 48, 48); */
+}
+
+#navbar .menu-item {
+    float: left;
+    display: block;
+}
+
+#navbar .menu-item a {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.menu-item a:hover {
+    color: rgb(0, 121, 0);
+}
+
+#navbar .current-menu-item a {
+    color:rgb(0, 121, 0);;
+}
+
+.open-navbar-container {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    display: none;
+    text-align: right;
+    /* background-color: rgb(48, 48, 48); */
+}
+
+.bars {
+    margin: 10px;
+    padding: 5px 8px;
+    font-size: 30px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(48, 48, 48, 0.5);
+    cursor: pointer;
+    /* box-shadow: 0 1px 1px black; */
+}
+
+.searchbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#s {
+    /* height: 25px; */
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+#searchsubmit {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    font-size: 16px;
+    padding: 5px;
+    border: none;
+    border-radius: 50%;
+    color:rgb(0, 121, 0);
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* frontpage */
+
+.frontpage-content {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 50px 5%;
+}
+
+
+
+
+
+
+/* recipes */
+
+.single-recipe-content {
+    margin: 50px 0;
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.recipe-header {
+    margin: 0 0 30px;
+    flex: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header-item {
+    flex: 33%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.header-item p {
+    margin: 5px 0;
+}
+
+.recipe-aside {
+    margin: 0 1%;
+    flex: 38%;
+}
+
+.recipe-section {
+    margin: 20px 0;
+    flex: 60%;
+}
+
+.page-title {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.date {
+    font-size: 16px;
+}
+
+.ingredients-list {
+    width: 100%;
+    min-width: 200px;
+    /* margin: 0px 10px 10px 10px; */
+    padding: 0;
+}
+
+.ingredients {
+    padding-bottom: 10px;
+    /* width: 200px; */
+    list-style: none;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgb(192, 192, 192);
+}
+
+
+
+
+/* categories menu */
+
+.categories-menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0;
+    font-size: 20px;
+    list-style: none;
+}
+
+.categories-menu .menu-item {
+    width: 60px;
+    height: 60px;
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.categories-menu .menu-item a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    background-color: rgb(48, 48, 48);
+    box-shadow: 0 2px 5px rgb(48, 48, 48);
+}
+
+
+.categories-menu .menu-item a:hover {
+    color: rgb(0, 121, 0);
+    box-shadow: 0 2px 5px rgb(0, 121, 0);
+}
+
+
+.food-category-menu {
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.food-category-menu .menu-item {
+    float: left;
+    list-style: none;
+    margin: 10px 5px;
+}
+
+.food-category-menu .menu-item a {
+    border-radius: 10px;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    color:rgb(255, 255, 255);
+    background-color: rgb(0, 121, 0);
+}
+
+
+
+
+/* card */
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px black;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+.card:hover {
+    box-shadow: 0 2px 5px rgb(0, 121, 0);
+}
+
+.excerpt {
+    text-align: left;
+    padding: 0 15px;
+}
+
+.default-image {
+    width: 100%;
+    max-width: 300px;
+}
+
+
+
+
+
+/* blog recipe card container */
+
+.posts-container {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.posts {
+    width: 98%;
+    padding: 1%;
+    display: grid;
+    grid-column-gap: 50px;
+    grid-template-columns: auto auto auto;
+}
+
+
+.posts-section {
+    flex: 80%;
+}
+
+.posts-aside {
+    flex: 17%;
+    padding: 1.5%;
+    text-align: left;
+}
+
+.sidebar {
+    margin-bottom: 50px;
+}
+
+.sidebar ul {
+    padding-left: 20px;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    list-style: none;
+    border-bottom: 1px solid rgb(119, 119, 119);
+}
+
+.sidebar li a {
+    text-decoration: none;
+}
+
+.posts-header {
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+.post-date {
+    display: block;
+}
+
+.posts-aside ul {
+    list-style: none;
+}
+
+.posts-aside ul a {
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+}
+
+.posts-aside ul a:hover {
+    color:rgb(0, 121, 0);
+}
+
+
+
+
+/* article */
+
+.single-post {
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 960px;
+}
+
+.single-post-header {
+    font-size: 25px;
+}
+
+.single-post-content {
+    font-size: 20px;
+}
+
+.post-title {
+    margin: 10px 0;
+}
+
+.tags {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.tag {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 16px;
+    margin: 5px;
+    color:rgb(255, 255, 255);
+    background-color: rgb(0, 121, 0);
+}
+
+.tag a {
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+}
+
+.article-thumbnail {
+    width: 100%;
+    max-width: 960px;
+}
+
+.comments-container {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.comment {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.depth-1 {
+    border-bottom: 1px solid rgb(119, 119, 119);
+}
+
+.fn {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.says {
+    display: none;
+}
+
+label[for=comment],
+label[for=author],
+label[for=email],
+label[for=url] {
+    display: block;
+    margin-bottom: 5px;
+}
+
+textarea {
+    /* margin: 5px 0; */
+    width: 100%;
+    max-width: 400px;
+    padding: 5px;
+}
+
+input {
+    /* margin: 5px 0; */
+    padding: 5px;
+}
+
+#submit {
+    padding: 10px;
+    border: none;
+    color:rgb(255, 255, 255);
+    background-color: rgb(0, 121, 0);
+}
+
+a {
+    color: rgb(48, 48, 48);
+}
+
+.pagination {
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.nav-links {
+    padding: 10px;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.screen-reader-text {
+    display: none;
+}
+
+.page-numbers {
+    margin-right: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(48, 48, 48);
+}
+
+.current {
+    color:rgb(48, 48, 48);
+    background-color: white;
+    box-shadow: 0 2px 5px rgb(48, 48, 48);
+}
+
+.post_link_navigation {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    background-color: rgb(48, 48, 48);
+}
+
+.post_link_navigation a {
+    color: white;
+    font-size: 20px;
+}
+
+
+
+
+
+/* footer */
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    color: white;
+    background-color: rgb(48, 48, 48);
+}
+
+.copyright {
+    font-size: 18px;
+    flex: 100%;
+}
+
+.footer-menu-container {
+    flex: 50%;
+    margin: 50px 0 20px;
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 10px;
+}
+
+.footer-menu a {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+.footer-menu ul a:hover {
+    color:rgb(0, 121, 0);
+}
+
+.footer-menu .current-menu-item a {
+    color:rgb(0, 121, 0);
+}
+
+.social-menu-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 50%;
+    margin: 50px 0 20px;
+}
+
+.social-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    list-style: none;
+}
+
+.social-menu .menu-item {
+    width: 60px;
+    height: 60px;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-menu .menu-item a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px rgb(48, 48, 48);
+}
+
+.social-menu .menu-item a:hover {
+    color:rgb(0, 121, 0);
+}
+
+/* Not found */
+
+.not-found{
+    margin: 50px auto;
+    text-align: center;
+    color: red;
+}
+
+
+
+
+/* Extra small devices (phones, 768px and down) */
+@media only screen and (max-width: 768px) {
+
+    .nav-container {
+        height: 0;
+    }
+
+    .nav-content {
+        flex-direction: column;
+    }
+
+    .searchbar {
+        padding-bottom: 50px;
+    }
+
+    .open-navbar-container {
+        display: block;
+    }
+
+    #navbar .menu-item {
+        float: none;
+    }
+
+    .posts-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .posts {
+        width: 90%;
+        padding: 0 5%;
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .social-menu-container {
+        flex: 50%;
+    }
+    
+    .posts-aside {
+        text-align: center;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    .posts {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    .posts {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+}
