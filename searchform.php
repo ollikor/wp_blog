@@ -1,3 +1,17 @@
+<?php 
+/**
+ * The searchform template
+ * 
+ * This is the template that display a searchform.
+ * 
+ * @package Wordpress
+ * @subpackage Mytheme
+ * @since Mytheme 1.0
+ * @version 1.0
+ * 
+ */
+?>
+
 <form 
     role="search" 
     method="get" 

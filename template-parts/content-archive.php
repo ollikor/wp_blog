@@ -1,3 +1,15 @@
+<?php 
+/**
+ * The post content template
+ * 
+ * 
+ * @package Wordpress
+ * @subpackage Mytheme
+ * @since Mytheme 1.0
+ * @version 1.0
+ * 
+ */
+?>
 <a class="card" href="<?php echo esc_url( get_permalink() ); ?>">
 
         <?php if ( has_post_thumbnail() ) : ?>

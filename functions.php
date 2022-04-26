@@ -1,4 +1,13 @@
 <?php
+/**
+ * Mytheme functions and definitions
+ *
+ *
+ * @package WordPress
+ * @subpackage Mytheme
+ * @since Mytheme 1.0
+ */
+
 
 function mytheme_theme_support() {
 
@@ -83,17 +92,17 @@ add_action('init', 'custom_post_type');
 function recipe_taxonomies() {
 
     $labels = array(
-        'name'              => _x( 'tags', 'taxonomy general name' ),
-        'singular_name'     => _x( 'tag', 'taxonomy singular name' ),
-        'search_items'      => __( 'Search tags'),
-        'all_items'         => __( 'All tags'),
+        'name'              => _x( 'recipetags', 'taxonomy general name' ),
+        'singular_name'     => _x( 'recipetag', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search recipetags'),
+        'all_items'         => __( 'All recipetags'),
         'parent_item'       => null,
         'parent_item_colon' => null,
-        'edit_item'         => __( 'Edit tag'),
-        'update_item'       => __( 'Update tag'),
-        'add_new_item'      => __( 'Add New tag'),
-        'new_item_name'     => __( 'New tag Name'),
-        'menu_name'         => __( 'tags'), 
+        'edit_item'         => __( 'Edit recipetag'),
+        'update_item'       => __( 'Update recipetag'),
+        'add_new_item'      => __( 'Add New recipetag'),
+        'new_item_name'     => __( 'New recipetag Name'),
+        'menu_name'         => __( 'recipetags'), 
     );
 
     $args = array(
@@ -102,10 +111,10 @@ function recipe_taxonomies() {
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'tag' ),
+        'rewrite'           => array( 'slug' => 'recipetag' ),
     );
 
-    register_taxonomy('tag', array('recipes'), $args);
+    register_taxonomy('recipetag', array('recipes'), $args);
 
 }
 add_action('init', 'recipe_taxonomies');
@@ -113,6 +122,7 @@ add_action('init', 'recipe_taxonomies');
 
 
 
+// Change title for comment form
 
 function set_my_comment_title($defaults) {
     $defaults['title_reply'] = __('Leave a comment');
@@ -123,6 +133,7 @@ add_filter('comment_form_defaults', 'set_my_comment_title');
 
 
 
+// Remove website field from comment form
 
 function website_remove($fields)
 {
@@ -134,6 +145,7 @@ add_filter('comment_form_default_fields', 'website_remove');
 
 
 
+// Disable file editor from dashboard
 function disable_mytheme_action() {
     define('DISALLOW_FILE_EDIT', TRUE);
 }

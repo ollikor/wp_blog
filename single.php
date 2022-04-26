@@ -1,5 +1,17 @@
 <?php 
-    get_header(); 
+/**
+ * The single post template
+ * 
+ * This is the template that display a single posts.
+ * 
+ * @package Wordpress
+ * @subpackage Mytheme
+ * @since Mytheme 1.0
+ * @version 1.0
+ * 
+ */
+
+ get_header(); 
 ?>
 
 <article>

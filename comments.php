@@ -1,3 +1,15 @@
+<?php 
+/**
+ * The comment template
+ * 
+ * 
+ * @package Wordpress
+ * @subpackage Mytheme
+ * @since Mytheme 1.0
+ * @version 1.0
+ * 
+ */
+?>
 <div class="comments-container">
     <h2>
         <?php
@@ -9,12 +21,14 @@
 
     <div>
         <?php 
-            wp_list_comments(
-                array(
-                    'avatar_size' => 0,
-                    'style' => 'div',
-                )
-            );
+            if( have_comments() ) :
+                wp_list_comments(
+                    array(
+                        'avatar_size' => 0,
+                        'style' => 'div',
+                    )
+                );
+            endif;
         ?>
     </div>
     
