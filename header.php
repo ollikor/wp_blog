@@ -50,5 +50,4 @@
             <?php endif; ?>
     </header>
     </div>
-
-    <div>
+    <div class="site-content">
