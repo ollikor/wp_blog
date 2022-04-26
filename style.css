@@ -506,7 +506,7 @@ label[for=url] {
     margin-bottom: 5px;
 }
 
-textarea {
+#comment {
     width: 100%;
     max-width: 400px;
     padding: 5px;
@@ -577,8 +577,36 @@ a {
 /* Contact page */
 
 .wide-page {
+    margin: 50px auto;
+    width: 100%;
+    max-width: 960px;
+}
+
+.wpcf7-form {
     margin: 0 auto;
-    width: 960px;
+    width: 90%;
+    padding: 0 5%;
+    max-width: 400px;
+}
+
+.wpcf7-text {
+    width: 98%;
+    padding: 1%;
+}
+
+.wpcf7-textarea {
+    width: 98%;
+    padding: 1%;
+}
+
+.wpcf7-submit {
+    color: white;
+    background-color: rgb(48, 48, 48);
+    padding: 5px 10px;
+}
+
+.required {
+    color: red;
 }
 
 

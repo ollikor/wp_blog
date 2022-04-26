@@ -4,6 +4,7 @@
  * 
  * This is the template that display a single post content.
  * 
+ * 
  * @package Wordpress
  * @subpackage Mytheme
  * @since Mytheme 1.0

@@ -14,7 +14,7 @@
 <a class="card" href="<?php echo esc_url( get_permalink() ); ?>">
 
 <?php if ( has_post_thumbnail() ) : ?>
-                <img class="thumbnail" src="<?php echo esc_url(the_post_thumbnail_url() );
+                <img class="thumbnail" src="<?php echo esc_url(the_post_thumbnail_url('custom-thumbnail') );
                 ?>" alt="image">
         <?php else : ?>
                 <img class="thumbnail" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/default-recipe.jpg" alt="image">

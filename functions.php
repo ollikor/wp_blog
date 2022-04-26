@@ -19,6 +19,8 @@ function mytheme_theme_support() {
 
     add_theme_support( 'post-thumbnails' );
 
+    add_image_size( 'custom-thumbnail', 400, 300, true );
+
 }
 add_action( 'after_setup_theme', 'mytheme_theme_support' );
 
