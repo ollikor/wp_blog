@@ -2,19 +2,21 @@
     get_header(); 
 ?>
 
-<!-- <?php
-    if(has_nav_menu('categories-menu') ) : 
+<div>
+    <?php 
+    if( has_nav_menu('food-categories-menu') ) :
         wp_nav_menu(
             array(
-                'theme_location' => 'categories-menu',
-                'items_wrap' => '<ul id="" class="categories-menu">%3$s</ul>',
+                'menu' => 'food-categories-menu',
+                'container' => '',
+                'theme_location' => 'primary',
+                'items_wrap' => '<ul id="" class="food-category-menu">%3$s</ul>',
             )
         );
     endif;
-?> -->
+    ?>
+</div>
 
-<div class="posts-container">
-    <section class="posts-section">
         <article class="posts">
 
         <?php
@@ -24,7 +26,7 @@
 
                     the_post();
                     
-                    get_template_part( 'template-parts/content', 'taxonomy' );
+                    get_template_part( 'template-parts/content', 'recipes' );
                 
                 endwhile;
 
@@ -37,10 +39,6 @@
         <?php 
             the_posts_pagination();
         ?>
-
-    </section>
-    
-</div>
 
 <?php 
     get_footer();

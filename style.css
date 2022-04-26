@@ -105,12 +105,9 @@ body {
 }
 
 #navbar {
-    /* max-width: 960px; */
-    /* margin: 0 auto; */
     padding: 0;
     list-style-type: none;
     overflow: hidden;
-    /* background-color: rgb(48, 48, 48); */
 }
 
 #navbar .menu-item {
@@ -141,7 +138,6 @@ body {
     right: 0;
     display: none;
     text-align: right;
-    /* background-color: rgb(48, 48, 48); */
 }
 
 .bars {
@@ -153,7 +149,6 @@ body {
     border-radius: 5px;
     background-color: rgba(48, 48, 48, 0.5);
     cursor: pointer;
-    /* box-shadow: 0 1px 1px black; */
 }
 
 .searchbar {
@@ -165,7 +160,6 @@ body {
 }
 
 #s {
-    /* height: 25px; */
     border: none;
     border-radius: 5px;
     outline: none;
@@ -189,7 +183,7 @@ body {
 
 .frontpage-content {
     width: 90%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 50px 5%;
 }
@@ -204,7 +198,6 @@ body {
 .single-recipe-content {
     margin: 50px 0;
     display: flex;
-    /* flex-direction: column; */
     flex-wrap: wrap;
     width: 100%;
 }
@@ -250,13 +243,11 @@ body {
 .ingredients-list {
     width: 100%;
     min-width: 200px;
-    /* margin: 0px 10px 10px 10px; */
     padding: 0;
 }
 
 .ingredients {
     padding-bottom: 10px;
-    /* width: 200px; */
     list-style: none;
     margin-bottom: 15px;
     border-bottom: 1px solid rgb(192, 192, 192);
@@ -336,7 +327,7 @@ body {
 
 .card {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     margin: 20px auto;
     padding-bottom: 20px;
     text-align: center;
@@ -517,14 +508,12 @@ label[for=url] {
 }
 
 textarea {
-    /* margin: 5px 0; */
     width: 100%;
     max-width: 400px;
     padding: 5px;
 }
 
 input {
-    /* margin: 5px 0; */
     padding: 5px;
 }
 

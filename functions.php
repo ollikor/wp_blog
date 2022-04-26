@@ -83,17 +83,17 @@ add_action('init', 'custom_post_type');
 function recipe_taxonomies() {
 
     $labels = array(
-        'name'              => _x( 'tag', 'taxonomy general name', 'textdomain' ),
-        'singular_name'     => _x( 'tag', 'taxonomy singular name', 'textdomain' ),
-        'search_items'      => __( 'Search tag', 'textdomain' ),
-        'all_items'         => __( 'All tag', 'textdomain' ),
-        'parent_item'       => __( 'Parent tag', 'textdomain' ),
-        'parent_item_colon' => __( 'Parent tag:', 'textdomain' ),
-        'edit_item'         => __( 'Edit tag', 'textdomain' ),
-        'update_item'       => __( 'Update v', 'textdomain' ),
-        'add_new_item'      => __( 'Add New v', 'textdomain' ),
-        'new_item_name'     => __( 'New tag Name', 'textdomain' ),
-        'menu_name'         => __( 'tag', 'textdomain' ), 
+        'name'              => _x( 'tags', 'taxonomy general name' ),
+        'singular_name'     => _x( 'tag', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search tags'),
+        'all_items'         => __( 'All tags'),
+        'parent_item'       => null,
+        'parent_item_colon' => null,
+        'edit_item'         => __( 'Edit tag'),
+        'update_item'       => __( 'Update tag'),
+        'add_new_item'      => __( 'Add New tag'),
+        'new_item_name'     => __( 'New tag Name'),
+        'menu_name'         => __( 'tags'), 
     );
 
     $args = array(
@@ -105,7 +105,7 @@ function recipe_taxonomies() {
         'rewrite'           => array( 'slug' => 'tag' ),
     );
 
-    register_taxonomy('recipe', array('recipes'), $args);
+    register_taxonomy('tag', array('recipes'), $args);
 
 }
 add_action('init', 'recipe_taxonomies');
