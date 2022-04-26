@@ -2,7 +2,7 @@
 /**
  * The page template
  * 
- * This is the template that display page content.
+ * This is the template that display contact-page content.
  * 
  * @package Wordpress
  * @subpackage Mytheme
