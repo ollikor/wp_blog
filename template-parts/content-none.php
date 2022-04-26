@@ -1,7 +1,7 @@
 <?php 
 /**
  * 
- * This is the template what show is there is not posts.
+ * This is the template what display if there is not posts.
  * 
  * @package Wordpress
  * @subpackage Mytheme

@@ -1,5 +1,17 @@
 <?php 
-    get_header(); 
+/**
+ * The recipes template
+ * 
+ * This is the template that displays all recipes.
+ * 
+ * @package Wordpress
+ * @subpackage Mytheme
+ * @since Mytheme 1.0
+ * @version 1.0
+ * 
+ */
+
+ get_header(); 
 ?>
 
 <div >
@@ -17,7 +29,7 @@
     ?>
 </div>
 
-<article class="posts">
+<div class="posts">
 
 <?php
 
@@ -28,20 +40,22 @@
         'paged' => $currentPage
     );
     $recipe_query = new WP_Query($args);
-    if( $recipe_query->have_posts() ){
+    if( $recipe_query->have_posts() ) :
 
-        while( $recipe_query->have_posts() ){
+        while( $recipe_query->have_posts() ) :
 
             $recipe_query->the_post();
             
             get_template_part( 'template-parts/content', 'recipes' );
-        }
 
-    } else { ?>
-        <h1>No recipes</h1>
-<?php } ?>
+        endwhile;
 
-</article>
+    else :
+        get_template_part('template-parts/content', 'none' );
+    endif; 
+?>   
+
+</div>
 
 <?php 
     the_posts_pagination();

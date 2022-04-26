@@ -24,6 +24,7 @@
 
                     the_post();
                     
+                    echo "sfda";
                     get_template_part( 'template-parts/content', 'archive' );
                 
                 endwhile;
