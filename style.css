@@ -127,7 +127,7 @@ body {
     color: rgb(0, 121, 0);
 }
 
-#navbar .current-menu-item a {
+.current-menu-item a {
     color:rgb(0, 121, 0);;
 }
 
