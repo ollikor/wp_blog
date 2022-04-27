@@ -711,7 +711,9 @@ a {
     color: red;
 }
 
-
+.grecaptcha-badge {
+    visibility: hidden;
+}
 
 
 /* Extra small devices (phones, 768px and down) */
